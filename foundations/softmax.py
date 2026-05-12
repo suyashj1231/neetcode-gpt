@@ -9,13 +9,17 @@ class Solution:
         # Hint: subtract max(z) for numerical stability before computing exp
         # return np.round(your_answer, 4)
 
-        maxval = max(z)
-        for i in range(len(z)):
-            z[i] = np.exp(z[i]-maxval)
-        
-        total = sum(z)
+        z = z - np.max(z)
+        exps = np.exp(z)
+        return np.round(exps / np.sum(exps), 4)
 
-        for i in range(len(z)):
-            z[i] = np.round(z[i] / total, 4)
+        # maxval = max(z)
+        # for i in range(len(z)):
+        #     z[i] = np.exp(z[i]-maxval)
         
-        return z
+        # total = sum(z)
+
+        # for i in range(len(z)):
+        #     z[i] = np.round(z[i] / total, 4)
+        
+        # return z
